@@ -1,17 +1,11 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Converter from './ui/ConverterPage';
 
-function App() {
-  return (
-    <div className="App">
-      <p>
-        Currency Converter
-      </p>
-      <header className="App-header">
-        <i>Conversion component goes here</i>
-      </header>
-    </div>
-  );
-}
+const App = () => 
+<Router>
+  <Route path="/" component={Converter} />
+</Router>
 
 export default App;

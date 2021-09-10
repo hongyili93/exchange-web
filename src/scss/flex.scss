@@ -1,0 +1,93 @@
+.flex {
+  display: flex;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block !important;
+}
+.center {
+  margin: 0 auto;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+}
+.flexEnd {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flexAround {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flexBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexEvenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.floatRight {
+  float: right;
+}
+.floatLeft {
+  float: left;
+}
+
+.flexAlignCenter {
+  align-items: center;
+}
+
+.flexAlignStart {
+  align-items: start;
+}
+
+.flexCenterCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexStartCenter {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.flexGrow1 {
+  flex-grow: 1;
+}
+
+.flexGrow2 {
+  flex-grow: 2;
+}
+
+.flexGrow3 {
+  flex-grow: 3;
+}
+
+.flexGrow4 {
+  flex-grow: 4;
+}
+
+.overflowScroll {
+  overflow: auto;
+}
