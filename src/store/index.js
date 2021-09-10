@@ -44,12 +44,11 @@ export class Store {
     return latestRate;
   }
 
+  // can not be used on free paln
   async timeSeries() {
     const start = moment().subtract(1, 'month').format('YYYY-MM-DD')
     const end = moment().format('YYYY-MM-DD')
     let latestRate = await getTimeSeries(start, end, currencyStore.favouriteCurrency.join());
-    // currencyStore.setlatestRateObject(latestRate);
-    console.log(latestRate)
     return latestRate;
   }
 

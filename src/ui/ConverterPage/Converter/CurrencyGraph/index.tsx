@@ -29,7 +29,8 @@ const CurrencyGraph = observer((props) => {
   } = props;
   const { favouriteCurrency } = currencyStore;
   useEffect(() => {
-    Store.timeSeries();
+    // can not be used on free plan
+    // Store.timeSeries();
   }, [])
 
   return (

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Select, InputNumber, Button } from 'antd';
 import moment from 'moment';
-import { StarFilled, StarOutlined } from '@ant-design/icons';
-
+import {
+  StarFilled, StarOutlined, SwapOutlined,
+  ClearOutlined, SaveOutlined,
+} from '@ant-design/icons';
 import { observer } from 'mobx-react';
+
 import currencyStore from '../../../store/currencyStore';
 import ConvertHistory from './ConvertHistory';
 import CurrencyGraph from './CurrencyGraph';
@@ -84,18 +87,26 @@ const Converter = observer(() => {
     }
   }
 
+  const swapCurrency = () => {
+    const a = inputSymbol;
+    setInputSymbol(convertSymbol);
+    setConvertSymbol(a);
+  }
+
   const switchInputSymbol = (currency) => {
     if (currency === convertSymbol) {
-      setConvertSymbol(inputSymbol)
+      swapCurrency();
+    } else {
+      setInputSymbol(currency);
     }
-    setInputSymbol(currency)
   }
 
   const switchConvertSymbol = (currency) => {
     if (currency === inputSymbol) {
-      setInputSymbol(convertSymbol)
+      swapCurrency();
+    } else {
+      setConvertSymbol(currency);
     }
-    setConvertSymbol(currency)
   }
 
   return (
@@ -181,7 +192,16 @@ const Converter = observer(() => {
       </label>
       <div className='flexRow flexCenterCenter m8b'>
         <Button
-          className='mr8'
+          style={styles.button}
+          icon={<SwapOutlined />}
+          onClick={swapCurrency}
+          disabled={!inputSymbol || !convertSymbol || isLoading}
+        >
+          Switch Currency
+        </Button>
+        <Button
+          className='mr8 ml8'
+          icon={<SaveOutlined />}
           style={styles.button}
           onClick={saveToHistory}
           disabled={!inputSymbol || !convertSymbol || isLoading}
@@ -190,6 +210,7 @@ const Converter = observer(() => {
         </Button>
         <Button
           style={styles.button}
+          icon={<ClearOutlined />}
           onClick={() => {
             setInputValue(1);
             setInputSymbol('USD');
